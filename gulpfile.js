@@ -149,6 +149,7 @@ gulp.task('srcset', () => {
 gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images'], () => {
 	gulp.watch(`${config.src}index.html`, ['index'])
 	gulp.watch(`${config.src}views/*.html`, ['views'])
+	gulp.watch(`${config.src}includes/**`, ['index', 'views'])
 	gulp.watch([`${config.src}styles/**/*.scss`, `!${config.src}styles/vendor`], ['styles'])
 	gulp.watch(`${config.src}styles/vendor/*.css`, ['vendor'])
 	gulp.watch([`${config.src}scripts/**/*.js`, `!${config.src}styles/vendor`], ['scripts'])
