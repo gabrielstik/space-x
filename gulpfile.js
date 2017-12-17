@@ -24,7 +24,8 @@ const gulp = require('gulp'),
 const config = {
 	dist: 'dist/',
 	src : 'src/',
-	assets: 'dist/assets/'
+	assets: 'dist/assets/',
+	isProd: process.env.NODE_ENV === 'production'
 }
 
 // Watch by default
@@ -157,3 +158,6 @@ gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'ima
 	gulp.watch(`${config.src}fonts/**`, ['fonts'])
 	gulp.watch(`${config.src}lib/**`, ['lib'])
 })
+
+gulp.task('default', ['watch'], () => { })
+gulp.task('build', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images'])
