@@ -1,3 +1,10 @@
 import Earth from './components/Earth'
+import Map from './components/Map'
 
-new Earth('earth', 6, [28.396837, -80.605659], 'atmosphere')
+const coords = {
+	x: 28.4583995,
+	y: -80.5283588
+}
+
+new Earth('earth', 5, coords, 'atmosphere')
+// new Map(coords)
