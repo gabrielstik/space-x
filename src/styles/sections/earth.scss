@@ -1,0 +1,9 @@
+.earth {
+	transform: translateY(50vh);
+	will-change: transform;
+	transition: all 1s ease-in-out;
+
+	&.active {
+		transform: translateY(0);
+	}
+}

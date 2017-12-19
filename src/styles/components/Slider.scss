@@ -1,0 +1,116 @@
+:root {
+	--dotSize: 30px;
+	--dotSpacing: 80px;
+	--dotColor: #cccccc;
+	--dotColorActive: #cccccc;
+	--arrowSize: 24px;
+	--arrowColor: #ffffff;
+}
+
+body {
+	margin: 0;
+}
+
+.steps {
+	width: 100vw;
+	height: 50vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	transform: translateY(-100vh);
+	will-change: transform;
+	transition: all .5s ease-out;
+	transition-delay: .5s;
+
+	&.active {
+		transform: translateY(0);
+	}
+
+	ul {
+		padding: 0;
+		font-size: 0;
+		will-change: transform;
+		transition: transform .5s ease-in-out;
+
+		li {
+			width: 100vw;
+			min-height: 200px;
+			display: inline-block;
+			opacity: .2;
+		}
+	}
+
+	.arrow {
+		position: absolute;
+		top: 45%;
+		font-size: var(--arrowSize);
+		color: var(--arrowColor);
+		cursor: pointer;
+		transition: transform .2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	.arrow-left {
+		left: 30px;
+	}
+
+	.arrow-right {
+		right: 30px;
+	}
+
+	.dots {
+		position: absolute;
+		top: 20px;
+		width: 100%;
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: 0;
+
+		.dot {
+			width: var(--dotSize);
+			height: var(--dotSize);
+			margin: 0 calc(var(--dotSpacing) / 2);
+			border: solid 2px var(--dotColor);
+			display: inline-block;
+			cursor: pointer;
+			transform: rotate(45deg);
+		}
+
+		.current-dot {
+			position: relative;
+			border: solid 2px var(--dotColorActive);
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				width: calc(var(--dotSize) - 8px);
+				height: calc(var(--dotSize) - 8px);
+				background: var(--dotColor);
+				display: inline-block;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.titles {
+		position: absolute;
+		top: 70px;
+		width: 100vw;
+		text-align: center;
+
+		.title {
+			width: calc(var(--dotSize) + var(--dotSpacing));
+			display: inline-block;
+			font-family: 'Avenir Next';
+			font-size: 12px;
+			color: #ffffff;
+			text-align: center;
+		}
+	}
+}

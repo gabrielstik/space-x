@@ -1,6 +1,7 @@
 import './sections/landing.js'
 import Surrounding from './components/Surrounding'
-import Rocket from './components/rocket'
+import Rocket from './components/Rocket'
+import Slider from './components/Slider'
 
 const coords = {
 	x: 28.4583995,
@@ -12,4 +13,9 @@ surrounding.createEarth('earth', 5, coords, 'atmosphere')
 surrounding.createStars('stars', '#111111', 400)
 // surrounding.createMap('map', coords)
 
-const rocket = new Rocket()
+// const mainRocket = new Rocket('mainRocket')
+const littleRocket = new Rocket('littleRocket')
+
+const slider = new Slider('.steps')
+slider.touchmoves()
+slider.dots()
