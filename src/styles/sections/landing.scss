@@ -1,4 +1,48 @@
 .landing {
+	padding: 100px;
 	z-index: 10000;
 	background: var(--spaceColor);
+	will-change: transform;
+
+	&.transition {
+		transition: transform .5s ease-in-out;
+	}
+
+	.logo {
+		width: 400px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	h1 {
+		width: 70%;
+		margin-top: 50px;
+		font-family: 'Avenir Next';
+		color: white;
+		font-weight: 300;
+		font-size: 84px;
+		word-spacing: 20px;
+		line-height: 110%;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin-top: 50px;
+		font-family: 'Avenir Next';
+		color: white;
+		font-weight: 500;
+		font-size: 24px;
+	}
+
+	button {
+		margin-top: 50px;
+		font-family: 'Avenir Next';
+		font-size: 18px;
+		font-weight: 500;
+		color: var(--spaceXBlue);
+		text-transform: uppercase;
+		cursor: pointer;
+	}
 }

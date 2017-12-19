@@ -161,9 +161,6 @@ gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'ima
 	gulp.watch(`${config.src}styles/vendor/*.css`, ['vendor'])
 	gulp.watch([`${config.src}scripts/**/*.js`, `!${config.src}styles/vendor`], ['scripts'])
 	gulp.watch(`${config.src}images/**`, ['images'])
-	gulp.watch(`${config.src}fonts/**`, ['fonts'])
-	gulp.watch(`${config.src}lib/**`, ['lib'])
-	gulp.watch(`${config.src}models/**`, ['models'])
 })
 
 gulp.task('default', ['watch'], () => { })

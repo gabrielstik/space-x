@@ -1,3 +1,4 @@
+import './sections/landing.js'
 import Surrounding from './components/Surrounding'
 import Rocket from './components/rocket'
 
@@ -9,5 +10,6 @@ const coords = {
 const surrounding = new Surrounding(coords)
 surrounding.createEarth('earth', 5, coords, 'atmosphere')
 surrounding.createStars('stars', '#111111', 400)
+// surrounding.createMap('map', coords)
 
 const rocket = new Rocket()
