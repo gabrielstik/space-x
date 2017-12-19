@@ -100,6 +100,12 @@ gulp.task('lib', () => {
 		.pipe(gulp.dest(`${config.assets}lib`))
 })
 
+gulp.task('models', () => {
+	return gulp.src(`${config.src}models/**`)
+		.pipe(gulp_plumber({errorHandler: gulp_notify.onError('Models error:  <%= error.message %>')}))
+		.pipe(gulp.dest(`${config.assets}models`))
+})
+
 gulp.task('images', () => {
 	return gulp.src(`${config.src}images/**`)
 		.pipe(gulp_plumber({errorHandler: gulp_notify.onError('Image error:  <%= error.message %>')}))
@@ -147,7 +153,7 @@ gulp.task('srcset', () => {
 })
 
 // Wath changes
-gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images'], () => {
+gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images', 'models'], () => {
 	gulp.watch(`${config.src}index.html`, ['index'])
 	gulp.watch(`${config.src}views/*.html`, ['views'])
 	gulp.watch(`${config.src}includes/**`, ['index', 'views'])
@@ -157,7 +163,8 @@ gulp.task('watch', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'ima
 	gulp.watch(`${config.src}images/**`, ['images'])
 	gulp.watch(`${config.src}fonts/**`, ['fonts'])
 	gulp.watch(`${config.src}lib/**`, ['lib'])
+	gulp.watch(`${config.src}models/**`, ['models'])
 })
 
 gulp.task('default', ['watch'], () => { })
-gulp.task('build', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images'])
+gulp.task('build', ['index', 'styles', 'vendor', 'scripts', 'fonts', 'lib', 'images', 'models'])
