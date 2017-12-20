@@ -9,7 +9,43 @@
 	}
 
 	#earth {
-		filter: blur(10px);
+		transition: filter 1s ease-out, transform .5s ease-in-out;
+
+		&.blur {
+			filter: blur(10px);
+		}
+	}
+
+	.altimeter {
+		width: 20px;
+		position: absolute;
+		left: 0;
+		top: 15vh;
+
+		.mark {
+			margin: .5vh 0;
+			background: var(--lightGrey);
+
+			&.big {
+				width: 20px;
+				height: 2px;
+			}
+
+			&.small {
+				width: 10px;
+				height: 1px;
+				background: var(--yellow);
+			}
+		}
+
+		.value {
+			font-family: 'Avenir Next';
+			font-size: 16px;
+			color: var(--lightGrey);
+			position: absolute;
+			bottom: -5px;
+			left: 25px;
+		}
 	}
 
 	.logo {

@@ -1,6 +1,9 @@
+import Surrounding from "./Surrounding";
+
 export default class Slider {
   
 	constructor($_slider) {
+		this.constructor.surrounding = new Surrounding()
 		/* this = const mais scope toute la classe */
 		this.constructor.$slider = document.querySelector($_slider)
 		this.constructor.$viewContainer = this.constructor.$slider.querySelector('ul')
@@ -117,11 +120,25 @@ export default class Slider {
 	/* MOVES */
   
 	static move(currentView) {
+		const $earth = document.querySelector('#earth')
+
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
 
 		if (this.isDots) {
 			Slider.moveDots(this.currentView)
+		}
+
+		this.currentView != 0 ? $earth.classList.remove('blur') : $earth.classList.add('blur')
+
+		if (this.currentView == 0) {
+			$earth.classList.add('active')
+		}
+
+		if (this.currentView == 1) {
+			setTimeout(() => {
+				$earth.classList.remove('active')
+			}, 1000)
 		}
 	}
   

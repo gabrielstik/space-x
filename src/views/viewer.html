@@ -3,7 +3,19 @@
 		<img src="assets/images/src/logo-white.png" alt="Logo Space X">
 	</div>
 	<canvas class="full" id="stars"></canvas>
-	<div class="full earth" id="earth"></div>
+	<div class="full earth blur" id="earth"></div>
+	<canvas class="full" id="mainRocket"></canvas>
+	<div class="altimeter">
+		@@for (let i = 0; i < 21; i++) {
+			<div class="mark big"></div>
+			<div class="mark small"></div>
+			<div class="mark small"></div>
+			<div class="mark small"></div>
+			<div class="mark small"></div>
+		}
+		<div class="mark big"></div>
+		<div class="value">0</div>
+	</div>
 	<div class="steps">
 		<ul>
 			<li data-name="Launch">

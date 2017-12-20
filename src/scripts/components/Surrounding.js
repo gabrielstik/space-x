@@ -44,23 +44,24 @@ export default class Surrounding {
 	}
 
 	createEarth(id, zoom, position, atmosphere) {
-		const offset = {
+		this.offset = {
 			x: -30,
-			y: -10
+			y: -10,
+			tilt: 45
 		}
 
 		const config = {
 			zoom: zoom,
-			position: [position.x + offset.x , position.y],
+			position: [position.x + this.offset.x , position.y],
 			atmosphere: atmosphere == 'atmosphere' ? true : false
 		}
-		const earth = new WE.map('earth', config)
-		earth.setTilt(45)
+		this.earth = new WE.map('earth', config)
+		this.earth.setTilt(this.offset.tilt)
 
 		const layer = WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
 			attribution: 'NASA',
 		})
-		layer.addTo(earth)
+		layer.addTo(this.earth)
 	}
 
 	createMap(id, position) {
