@@ -55,7 +55,7 @@ export default class Surrounding {
 			atmosphere: atmosphere == 'atmosphere' ? true : false
 		}
 		const earth = new WE.map('earth', config)
-		earth.setTilt(40)
+		earth.setTilt(45)
 
 		const layer = WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
 			attribution: 'NASA',

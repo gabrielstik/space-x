@@ -6,6 +6,7 @@ class Landing {
 		const $landing = document.querySelector('.landing')
 		const $earth = document.querySelector('.earth')
 		const $steps = document.querySelector('.steps')
+		const $viewer = document.querySelector('.viewer')
 
 		let draggable = false
 		let mouse = {}
@@ -36,7 +37,9 @@ class Landing {
 			setTimeout(() => {
 				$steps.classList.remove('transition')
 			}, 1500)
+			$viewer.classList.add('active')
 		}
+		end()
 
 		$button.addEventListener('mousedown', (e) => {
 			draggable = true

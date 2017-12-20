@@ -1,0 +1,123 @@
+.viewer.active .logo {
+	opacity: .5;
+}
+
+.viewer {
+
+	#stars {
+		opacity: .5;
+	}
+
+	#earth {
+		filter: blur(10px);
+	}
+
+	.logo {
+		width: 150px;
+		position: absolute;
+		z-index: 1000000;
+		top: 30px;
+		left: 30px;
+		opacity: 0;
+		transition: opacity .2s ease-in-out;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.cesium-credit-textContainer {
+		display: none;
+	}
+
+	.earth {
+		transform: translateY(50vh);
+		will-change: transform;
+
+		&.transition {
+			transition: all 1s ease-in-out;
+		}
+
+		&.active {
+			transform: translateY(0);
+		}
+	}
+
+	.steps {
+
+		li {
+			position: relative;
+			padding-top: 100px;
+			color: white;
+			font-size: 12px;
+
+			h2 {
+				margin: 10px 0;
+				font-family: 'Avenir Next';
+				font-size: 48px;
+				text-align: center;
+			}
+
+			h3 {
+				margin: 10px 0;
+				font-family: 'Avenir Next';
+				font-size: 36px;
+				font-weight: 700;
+				color: var(--yellow);
+				text-align: center;
+			}
+
+			.image {
+				position: absolute;
+				width: 600px;
+				perspective: 600px;
+				transform-style: preserve-3d;
+
+				.arrow-1 {
+					--width: 200px;
+					position: absolute;
+					width: var(--width);
+					height: 2px;
+					background: var(--lightGrey);
+					left: calc(var(--width) * -1 + 2px);
+					top: 50%;
+				}
+
+				.arrow-2 {
+					--width: 200px;
+					position: absolute;
+					width: var(--width);
+					height: 2px;
+					background: var(--lightGrey);
+					left: calc(var(--width) * -2 + 2px);
+					top: 50%;
+					transform-origin: right;
+					transform: rotate(-70deg);
+
+					&::after {
+						--size: 30px;
+						content: '';
+						position: absolute;
+						top: calc(var(--size) * -.5 + 1px);
+						left: calc(var(--size) * -1);
+						width: var(--size);
+						height: var(--size);
+						border: solid 2px var(--lightGrey);
+						border-radius: 50%;
+					}
+				}
+
+				img {
+					width: 100%;
+					transform: rotateX(20deg);
+					border: solid 2px var(--lightGrey);
+				}
+
+				&.launch {
+					top: 30vh;
+					right: 50px;
+				}
+			}
+		}
+	}
+}
