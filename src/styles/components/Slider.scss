@@ -1,6 +1,5 @@
 :root {
 	--dotSize: 30px;
-	--dotSpacing: 80px;
 	--dotColor: #cccccc;
 	--dotColorActive: #cccccc;
 	--arrowSize: 24px;
@@ -63,21 +62,36 @@ body {
 	}
 
 	.dots {
+		--width: 50%;
 		position: absolute;
 		top: 20px;
-		width: 100%;
+		left: calc(50% - var(--width) / 2);
+		width: var(--width);
 		margin-bottom: 10px;
 		text-align: center;
 		font-size: 0;
+		display: flex;
+		justify-content: space-between;
 
 		.dot {
+			position: relative;
 			width: var(--dotSize);
 			height: var(--dotSize);
 			margin: 0 calc(var(--dotSpacing) / 2);
 			border: solid 2px var(--dotColor);
-			display: inline-block;
+			border-radius: 50%;
 			cursor: pointer;
-			transform: rotate(45deg);
+
+			.title {
+				position: absolute;
+				width: calc(var(--dotSize) * 3);
+				top: 40px;
+				left: calc(50% - (var(--dotSize) * 3) / 2);
+				font-family: 'Avenir Next';
+				font-size: 12px;
+				color: #ffffff;
+				text-align: center;
+			}
 		}
 
 		.current-dot {
@@ -92,25 +106,10 @@ body {
 				width: calc(var(--dotSize) - 8px);
 				height: calc(var(--dotSize) - 8px);
 				background: var(--dotColor);
+				border-radius: 50%;
 				display: inline-block;
 				cursor: pointer;
 			}
-		}
-	}
-
-	.titles {
-		position: absolute;
-		top: 70px;
-		width: 100vw;
-		text-align: center;
-
-		.title {
-			width: calc(var(--dotSize) + var(--dotSpacing));
-			display: inline-block;
-			font-family: 'Avenir Next';
-			font-size: 12px;
-			color: #ffffff;
-			text-align: center;
 		}
 	}
 }

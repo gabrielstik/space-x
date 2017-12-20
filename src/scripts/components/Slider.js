@@ -35,15 +35,11 @@ export default class Slider {
 
 		this.constructor.$dots = document.querySelectorAll('.dot')
 
-		const $titles = document.createElement('div')
-		$titles.classList.add('titles')
-		this.constructor.$slider.appendChild($titles)
-
 		let i = 0
 		this.constructor.$dots.forEach(dot => {
 			const $title = document.createElement('div')
 			$title.classList.add('title')
-			$titles.appendChild($title)
+			dot.appendChild($title)
 			$title.innerHTML = this.constructor.$views[i].dataset.name
 			i++
 			dot.addEventListener('click', () => {
