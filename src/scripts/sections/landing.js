@@ -23,8 +23,19 @@ class Landing {
 		const end = () => {
 			$landing.classList.add('transition')
 			$landing.style.transform = 'translateX(100vw)'
+			setTimeout(() => {
+				$landing.classList.remove('transition')
+			},1000)
 			$earth.classList.add('active')
+			$earth.classList.add('transition')
+			setTimeout(() => {
+				$earth.classList.remove('transition')
+			},1000)
 			$steps.classList.add('active')
+			$steps.classList.add('transition')
+			setTimeout(() => {
+				$steps.classList.remove('transition')
+			}, 1500)
 		}
 
 		$button.addEventListener('mousedown', (e) => {
