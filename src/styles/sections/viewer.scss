@@ -1,5 +1,5 @@
-.viewer.active .logo {
-	opacity: .5;
+.viewer.active .altimeter {
+	opacity: 1;
 }
 
 .viewer {
@@ -14,6 +14,10 @@
 		&.blur {
 			filter: blur(10px);
 		}
+
+		&.zoom {
+			transform: scale(2);
+		}
 	}
 
 	.altimeter {
@@ -21,6 +25,10 @@
 		position: absolute;
 		left: 0;
 		top: 15vh;
+		z-index: 100000;
+		will-change: opacity;
+		opacity: 0;
+		transition: opacity .5s ease-in-out;
 
 		.mark {
 			margin: .5vh 0;
@@ -45,20 +53,8 @@
 			position: absolute;
 			bottom: -5px;
 			left: 25px;
-		}
-	}
-
-	.logo {
-		width: 150px;
-		position: absolute;
-		z-index: 1000000;
-		top: 30px;
-		left: 30px;
-		opacity: 0;
-		transition: opacity .2s ease-in-out;
-
-		img {
-			width: 100%;
+			will-change: transform;
+			transition: transform 1s ease-in-out;
 		}
 	}
 
@@ -83,7 +79,7 @@
 
 		li {
 			position: relative;
-			padding-top: 100px;
+			padding-top: 20px;
 			color: white;
 			font-size: 12px;
 

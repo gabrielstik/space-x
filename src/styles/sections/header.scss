@@ -1,0 +1,27 @@
+header.active .logo {
+	opacity: .5;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px 5vw;
+
+	.logo {
+		width: 150px;
+		opacity: 0;
+		transition: opacity .2s ease-in-out;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	h1 {
+		font-family: 'Avenir Next';
+		font-size: 16px;
+		font-weight: 100;
+		color: var(--lightGrey);
+	}
+}

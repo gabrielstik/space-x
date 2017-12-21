@@ -45,8 +45,8 @@ export default class Surrounding {
 
 	createEarth(id, zoom, position, atmosphere) {
 		this.offset = {
-			x: -30,
-			y: -10,
+			x: 0,
+			y: 0,
 			tilt: 45
 		}
 

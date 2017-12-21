@@ -6,7 +6,9 @@ class Landing {
 		const $landing = document.querySelector('.landing')
 		const $earth = document.querySelector('.earth')
 		const $steps = document.querySelector('.steps')
+		const $header = document.querySelector('header')
 		const $viewer = document.querySelector('.viewer')
+		const $altimeter = document.querySelector('.altimeter')
 
 		let draggable = false
 		let mouse = {}
@@ -37,6 +39,7 @@ class Landing {
 			setTimeout(() => {
 				$steps.classList.remove('transition')
 			}, 1500)
+			$header.classList.add('active')
 			$viewer.classList.add('active')
 		}
 		end()

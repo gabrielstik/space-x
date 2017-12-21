@@ -1,10 +1,7 @@
-import Surrounding from "./Surrounding";
-
 export default class Slider {
   
-	constructor($_slider) {
-		this.constructor.surrounding = new Surrounding()
-		/* this = const mais scope toute la classe */
+	constructor($_slider, surrounding) {		
+		this.constructor.surrounding = surrounding
 		this.constructor.$slider = document.querySelector($_slider)
 		this.constructor.$viewContainer = this.constructor.$slider.querySelector('ul')
 		this.constructor.$views = this.constructor.$slider.querySelectorAll('li')
@@ -120,6 +117,9 @@ export default class Slider {
 	/* MOVES */
   
 	static move(currentView) {
+		
+		const $altimeter = document.querySelector('.altimeter')
+		const $altimeterValue = $altimeter.querySelector('.value')
 		const $earth = document.querySelector('#earth')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
@@ -131,14 +131,28 @@ export default class Slider {
 
 		this.currentView != 0 ? $earth.classList.remove('blur') : $earth.classList.add('blur')
 
+		const updateAlt = (alt) => {
+			$altimeterValue.innerHTML = alt
+			$altimeterValue.style.transform = `translateY(${$altimeter.offsetHeight / 210 * -alt}px)`
+		}
+
+		const updateEarth = (tilt, zoom) => {
+			this.surrounding.earth.setTilt(tilt)
+			this.surrounding.earth.setZoom(zoom)
+		}
+
 		if (this.currentView == 0) {
 			$earth.classList.add('active')
+			updateAlt(0)
+			updateEarth(45, 5)
 		}
 
 		if (this.currentView == 1) {
 			setTimeout(() => {
-				$earth.classList.remove('active')
+				$earth.classList.remove('zoom')
 			}, 1000)
+			updateAlt(40)
+			updateEarth(0, 1)
 		}
 	}
   

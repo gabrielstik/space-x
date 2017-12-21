@@ -68,7 +68,7 @@ body {
 	.dots {
 		--width: 50vw;
 		position: absolute;
-		top: 20px;
+		bottom: 30px;
 		left: calc(50% - var(--width) / 2);
 		width: var(--width);
 		margin-bottom: 10px;

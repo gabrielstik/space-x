@@ -42,9 +42,9 @@ export default class Rocket {
 			var material = new THREE.MeshLambertMaterial({morphTargets: true})
 			mesh = new THREE.Mesh(geometry, material)
 			scene.add(mesh)
-			mesh.position.z = -100
+			mesh.position.z = -60
 			mesh.position.y = -50
-			mesh.position.x = 30
+			mesh.position.x = 20
 			//MIXER
 			mixer = new THREE.AnimationMixer(mesh)
 			var clip = THREE.AnimationClip.CreateFromMorphTargetSequence('talk', geometry.morphTargets, 30)
