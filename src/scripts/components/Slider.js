@@ -123,6 +123,7 @@ export default class Slider {
 		const $altimeterValue = $altimeter.querySelector('.value')
 		const $earth = document.querySelector('#earth')
 		const $rocket = document.querySelector('.rocket')
+		const $fire = document.querySelector('.fire')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
@@ -147,6 +148,7 @@ export default class Slider {
 
 		const updateRocket = (x, y, size, angle) => {
 			$rocket.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
+			$fire.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
 		}
 		updateRocket('0px', '-70vh', '.1', '5deg')
 
