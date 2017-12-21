@@ -124,6 +124,7 @@ export default class Slider {
 		const $earth = document.querySelector('#earth')
 		const $rocket = document.querySelector('.rocket')
 		const $fire = document.querySelector('.fire')
+		const $image = document.querySelector('.rocket img')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
@@ -157,9 +158,10 @@ export default class Slider {
 				$earth.classList.remove('zoom')
 			}, 1000)
 			this.coords.x += 1
-			updateAlt(14)
+			updateAlt(0)
 			updateEarth(45, 5)
 			updateRocket('0px', '-70vh', '.1', '5deg')
+			$image.src = 'assets/imageS/src/rocket.png'
 		}
 
 		if (this.currentView == 1) {
@@ -170,6 +172,7 @@ export default class Slider {
 			updateAlt(14)
 			updateEarth(45, 5)
 			updateRocket('0px', '-70vh', '.1', '5deg')
+			$image.src = 'assets/imageS/src/rocket.png'
 		}
 
 		if (this.currentView == 2) {
@@ -179,6 +182,7 @@ export default class Slider {
 			updateAlt(65)
 			updateEarth(45, 5)
 			updateRocket('5vw', '-68vh', '.2', '45deg')
+			$image.src = 'assets/imageS/src/rocket.png'
 		}
 
 		if (this.currentView == 3) {
@@ -188,6 +192,7 @@ export default class Slider {
 			updateAlt(70)
 			updateEarth(35, 5)
 			updateRocket('12vw', '-62vh', '.3', '110deg')
+			$image.src = 'assets/images/src/rocket-mid.png'
 		}
 
 		if (this.currentView == 4) {
@@ -197,15 +202,17 @@ export default class Slider {
 			updateAlt(80)
 			updateEarth(35, 5)
 			updateRocket('30vw', '-45vh', '.5', '350deg')
+			$image.src = 'assets/images/src/rocket-mid.png'
 		}
 
 		if (this.currentView == 5) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(204)
+			updateAlt(120)
 			updateEarth(15, 4)
 			updateRocket('20vw', '-10vh', '.4', '405deg')
+			$image.src = 'assets/images/src/rocket-mid.png'
 		}
 
 		if (this.currentView == 6) {
@@ -215,15 +222,17 @@ export default class Slider {
 			updateAlt(204)
 			updateEarth(15, 4)
 			updateRocket('15vw', '0', '.2', '450deg')
+			$image.src = 'assets/images/src/rocket-fins.png'
 		}
 
 		if (this.currentView == 7) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(204)
+			updateAlt(80)
 			updateEarth(15, 4)
 			updateRocket('12vw', '0', '.2', '460deg')
+			$image.src = 'assets/images/src/rocket-fins.png'
 		}
 
 		if (this.currentView == 8) {
@@ -231,8 +240,9 @@ export default class Slider {
 				$earth.classList.remove('zoom')
 			}, 1000)
 			updateAlt(204)
-			updateEarth(15, 4)
+			updateEarth(4, 4)
 			updateRocket('10vw', '0', '.1', '500deg')
+			$image.src = 'assets/images/src/rocket-last.png'
 		}
 
 		if (this.currentView == 9) {
@@ -241,7 +251,8 @@ export default class Slider {
 			}, 1000)
 			updateAlt(0)
 			updateEarth(0, 1)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '0', '285deg')
+			updateRocket('10vw', '0', '.01', '500deg')
+			$image.src = 'assets/images/src/rocket-last.png'
 		}
 	}
   
