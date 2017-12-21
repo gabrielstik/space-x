@@ -2,7 +2,7 @@ import './sections/landing.js'
 import Surrounding from './components/Surrounding'
 import Rocket from './components/Rocket'
 import Slider from './components/Slider'
-import player from './components/player'
+import Player from './components/Player'
 
 const coords = {
 	x: 28.4583995,
@@ -10,7 +10,7 @@ const coords = {
 }
 
 const surrounding = new Surrounding(coords)
-surrounding.createEarth('earth', 2, coords, 'atmosphere')
+surrounding.createEarth('earth', 2.5, coords, 'atmosphere')
 surrounding.createStars('stars', '#111111', 400)
 
 const littleRocket = new Rocket('littleRocket')
@@ -19,4 +19,4 @@ const slider = new Slider('.steps', surrounding, coords)
 slider.touchmoves()
 slider.dots()
 
-const player = new player()
+const player = new Player()

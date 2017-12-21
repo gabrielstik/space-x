@@ -9,6 +9,7 @@
 	}
 
 	#earth {
+		transform: rotate(-20deg);
 		transition: filter 1s ease-out, transform .5s ease-in-out;
 
 		&.zoom {
@@ -81,19 +82,22 @@
 			font-size: 12px;
 
 			h2 {
+				position: absolute;
+				right: 5vw;
+				top: 30px;
 				margin: 10px 0;
 				font-family: 'Avenir Next';
 				font-size: 48px;
+				font-weight: 700;
 				text-align: center;
 			}
 
 			h3 {
-				margin: 10px 0;
+				margin: 100px 0 0 5vw;
 				font-family: 'Avenir Next';
 				font-size: 36px;
 				font-weight: 700;
 				color: var(--yellow);
-				text-align: center;
 			}
 
 			.image {
@@ -143,15 +147,16 @@
 				}
 
 				&.launch {
-					top: 10vh;
+					top: 15vh;
 					right: 50px;
 				}
 			}
 
 			p {
 				width: 20vw;
-				margin: 100px 5vw;
+				margin: 30px 0 0 5vw;
 				font-family: 'Avenir Next';
+				font-weight: 100;
 				color: white;
 				font-size: 16px;
 				line-height: 22px;
@@ -161,10 +166,9 @@
 
 	.rocket {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 50vh;
+		left: 50vw;
 		height: 500px;
-		transform: scale(0);
 		transform-style: preserve-3d;
 		transition: all 2s ease-in-out; 
 

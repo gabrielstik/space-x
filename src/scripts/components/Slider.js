@@ -137,19 +137,27 @@ export default class Slider {
 		}
 
 		const updateEarth = (tilt, zoom, panX, panY) => {
+			let coords = this.coords
+			// coords.x += 45
+			coords.y += 45
 			// this.surrounding.earth.setTilt(tilt)
 			// this.surrounding.earth.setZoom(zoom)
+			this.surrounding.earth.panTo([coords.x,coords.y])
 		}
 
 		const updateRocket = (x, y, size, angle) => {
 			$rocket.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
 		}
+		updateRocket('0px', '-70vh', '.1', '5deg')
 
 		if (this.currentView == 0) {
-			$earth.classList.add('active')
-			updateAlt(0)
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			this.coords.x += 1
+			updateAlt(14)
 			updateEarth(45, 5)
-			updateRocket('0px', '0px', '0', '0deg')
+			updateRocket('0px', '-70vh', '.1', '5deg')
 		}
 
 		if (this.currentView == 1) {
@@ -159,7 +167,7 @@ export default class Slider {
 			this.coords.x += 1
 			updateAlt(14)
 			updateEarth(45, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '150px', '.1', '5deg')
+			updateRocket('0px', '-70vh', '.1', '5deg')
 		}
 
 		if (this.currentView == 2) {
@@ -168,7 +176,7 @@ export default class Slider {
 			}, 1000)
 			updateAlt(65)
 			updateEarth(45, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '30deg')
+			updateRocket('5vw', '-68vh', '.2', '45deg')
 		}
 
 		if (this.currentView == 3) {
@@ -177,7 +185,7 @@ export default class Slider {
 			}, 1000)
 			updateAlt(70)
 			updateEarth(35, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '75deg')
+			updateRocket('12vw', '-62vh', '.3', '110deg')
 		}
 
 		if (this.currentView == 4) {
@@ -186,7 +194,7 @@ export default class Slider {
 			}, 1000)
 			updateAlt(80)
 			updateEarth(35, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+			updateRocket('30vw', '-45vh', '.5', '350deg')
 		}
 
 		if (this.currentView == 5) {
@@ -195,34 +203,34 @@ export default class Slider {
 			}, 1000)
 			updateAlt(204)
 			updateEarth(15, 4)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+			updateRocket('20vw', '-10vh', '.4', '405deg')
 		}
 
 		if (this.currentView == 6) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(127)
-			updateEarth(10, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+			updateAlt(204)
+			updateEarth(15, 4)
+			updateRocket('15vw', '0', '.2', '450deg')
 		}
 
 		if (this.currentView == 7) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(53)
-			updateEarth(5, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+			updateAlt(204)
+			updateEarth(15, 4)
+			updateRocket('12vw', '0', '.2', '460deg')
 		}
 
 		if (this.currentView == 8) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(4)
-			updateEarth(0, 5)
-			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+			updateAlt(204)
+			updateEarth(15, 4)
+			updateRocket('10vw', '0', '.1', '500deg')
 		}
 
 		if (this.currentView == 9) {
