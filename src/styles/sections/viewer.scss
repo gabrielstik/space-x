@@ -3,6 +3,7 @@
 }
 
 .viewer {
+	overflow: hidden;
 
 	#stars {
 		opacity: .5;
@@ -11,6 +12,10 @@
 	#earth {
 		transform: translateX(50vw);
 		transition: filter 1s ease-out, transform .5s ease-in-out;
+
+		@media #{$mobile} {
+			display: none;
+		}
 
 		&.zoom {
 			transform: scale(2);
@@ -85,14 +90,23 @@
 				font-size: 48px;
 				font-weight: 700;
 				text-align: center;
+
+				@media #{$mobile} {
+					top: 5px;
+				}
 			}
 
 			h3 {
 				margin: 100px 0 0 5vw;
+				padding-left: 20px;
 				font-family: 'Avenir Next';
 				font-size: 36px;
 				font-weight: 700;
 				color: var(--yellow);
+
+				@media #{$mobile} {
+					margin-top: 60px;
+				}
 			}
 
 			.image {
@@ -100,6 +114,12 @@
 				width: 400px;
 				perspective: 600px;
 				transform-style: preserve-3d;
+
+				@media #{$mobile} {
+					position: static;
+					width: 90vw;
+					margin: 20px 5vw;
+				}
 
 				.arrow-1 {
 					--width: 25vw;
@@ -109,6 +129,10 @@
 					background: var(--lightGrey);
 					right: calc(var(--width) * -1 + 2px);
 					top: 50%;
+
+					@media #{$mobile} {
+						display: none;
+					}
 
 					&::after {
 						--size: 30px;
@@ -127,6 +151,10 @@
 					width: 100%;
 					transform: rotateX(20deg);
 					border: solid 2px var(--lightGrey);
+
+					@media #{$mobile} {
+						transform: none;
+					}
 				}
 
 				&.launch {
@@ -137,12 +165,24 @@
 
 			p {
 				width: 20vw;
-				margin: 30px 0 0 10vw;
+				margin: 30px 0 0 5vw;
 				font-family: 'Avenir Next';
 				font-weight: 100;
 				color: white;
 				font-size: 16px;
 				line-height: 22px;
+
+				@media #{$mobile} {
+					width: 90vw;
+				}
+
+				.bold {
+					font-weight: 700;
+				}
+
+				.yellow {
+					color: var(--yellow);
+				}
 			}
 		}
 	}
@@ -155,32 +195,47 @@
 		transform-style: preserve-3d;
 		transition: all 2s ease-in-out; 
 
+		@media #{$mobile} {
+			display: none;
+		}
+
 		img {
 			height: 100%;
 		}
 
 		canvas {
-			height: 100px;
-			width: 20px;
 			position: absolute;
-			bottom: 0;
+			left: -30px;
+			bottom: -100px;
 		}
 
 		.fire {
 			position: absolute;
-			transform: translateY(100px)
+			bottom: -200px;
+			will-change: transform;
+			transform-origin: top;
+			transform: scale(0);
+			transition: transform 1s ease-in;
 		}
 
 		&.step-0 {
-			transform: rotate(0deg) translateY(100vh);
+			transform: rotate(0deg) translateY(200vh);
 		}
 
 		&.step-1 {
 			transform: rotate(10deg);
+
+			.fire {
+				transform: scale(1);
+			}
 		}
 
 		&.step-2 {
-			transform: rotate(80deg);
+			transform: rotate(20deg);
+		}
+
+		&.step-3 {
+			transform: rotate(25deg);
 		}
 
 		&.step-4 {
@@ -189,6 +244,10 @@
 
 		&.step-5 {
 			transform: rotate(320deg);
+
+			.fire {
+				transform: scale(1);
+			}
 		}
 
 		&.step-6 {
@@ -197,14 +256,26 @@
 
 		&.step-7 {
 			transform: rotate(340deg);
+
+			.fire {
+				transform: scale(1);
+			}
 		}
 
 		&.step-8 {
 			transform: rotate(350deg);
+
+			.fire {
+				transform: scale(1);
+			}
 		}
 
 		&.step-9 {
-			transform: rotate(360deg);
+			transform: rotate(360deg) translateY(200vh);
+
+			.fire {
+				transform: scale(1);
+			}
 		}
 	}
 }

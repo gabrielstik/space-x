@@ -123,6 +123,7 @@ export default class Slider {
   
 	static move(currentView) {
 		const $rocket = document.querySelector('.rocket')
+		const $fire = $rocket.querySelector('.fire')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView

@@ -1,8 +1,7 @@
-import './sections/landing.js'
+import Modernizr from './vendor/Modernizr'
+import './sections/landing'
 import Surrounding from './components/Surrounding'
-// import Rocket from './components/Rocket'
 import Slider from './components/Slider'
-// import Player from './components/Player'
 import Fire from './components/Fire'
 import Gestures from './components/Gestures'
 
@@ -12,10 +11,11 @@ const coords = {
 }
 
 const surrounding = new Surrounding(coords)
-surrounding.createEarth('earth', 2.5, coords, 'atmosphere')
+if (!Modernizr.touchevents) {
+	surrounding.createEarth('earth', 2.5, coords, 'atmosphere')
+}
 surrounding.createStars('stars', '#111111', 400)
 
-// const littleRocket = new Rocket('littleRocket')
 
 const slider = new Slider('.steps', surrounding, coords)
 slider.touchmoves()

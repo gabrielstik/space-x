@@ -1,10 +1,22 @@
 body {
+	height: 100vh;
 	overflow: hidden;
 	background: var(--spaceColor);
+
+	@media #{$mobile} {
+		overflow: auto;
+		height: auto;
+	}
 }
 
 html {
+	height: 100vh;
 	overflow: hidden;
+
+	@media #{$mobile} {
+		overflow: auto;
+		height: auto;
+	}
 }
 
 .full {

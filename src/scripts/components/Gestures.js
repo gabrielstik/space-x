@@ -1,3 +1,5 @@
+/* global Modernizr */
+
 export default class Gestures {
 
 	constructor(slider) {
@@ -30,12 +32,14 @@ export default class Gestures {
 			slider.callMove(view)
 		}
 
-		document.addEventListener('mousewheel', (event) => {
-			if (scrolling == false) {
-				event.deltaY > 0 ? nextScroll() : false
-				event.deltaY < 0 ? precScroll() : false
-			}
-		})
+		if (!Modernizr.touchevents) {
+			document.addEventListener('mousewheel', (event) => {
+				if (scrolling == false) {
+					event.deltaY > 0 ? nextScroll() : false
+					event.deltaY < 0 ? precScroll() : false
+				}
+			})
+		}
 
 		document.addEventListener('keydown', (event) => {
 			event.keyCode == 37 ? prec() : false
