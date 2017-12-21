@@ -1,6 +1,7 @@
 export default class Slider {
   
-	constructor($_slider, surrounding) {		
+	constructor($_slider, surrounding, coords) {
+		this.constructor.coords = coords
 		this.constructor.surrounding = surrounding
 		this.constructor.$slider = document.querySelector($_slider)
 		this.constructor.$viewContainer = this.constructor.$slider.querySelector('ul')
@@ -121,6 +122,7 @@ export default class Slider {
 		const $altimeter = document.querySelector('.altimeter')
 		const $altimeterValue = $altimeter.querySelector('.value')
 		const $earth = document.querySelector('#earth')
+		const $rocket = document.querySelector('.rocket')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
@@ -129,30 +131,107 @@ export default class Slider {
 			Slider.moveDots(this.currentView)
 		}
 
-		this.currentView != 0 ? $earth.classList.remove('blur') : $earth.classList.add('blur')
-
 		const updateAlt = (alt) => {
 			$altimeterValue.innerHTML = alt
 			$altimeterValue.style.transform = `translateY(${$altimeter.offsetHeight / 210 * -alt}px)`
 		}
 
-		const updateEarth = (tilt, zoom) => {
-			this.surrounding.earth.setTilt(tilt)
-			this.surrounding.earth.setZoom(zoom)
+		const updateEarth = (tilt, zoom, panX, panY) => {
+			// this.surrounding.earth.setTilt(tilt)
+			// this.surrounding.earth.setZoom(zoom)
+		}
+
+		const updateRocket = (x, y, size, angle) => {
+			$rocket.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
 		}
 
 		if (this.currentView == 0) {
 			$earth.classList.add('active')
 			updateAlt(0)
 			updateEarth(45, 5)
+			updateRocket('0px', '0px', '0', '0deg')
 		}
 
 		if (this.currentView == 1) {
 			setTimeout(() => {
 				$earth.classList.remove('zoom')
 			}, 1000)
-			updateAlt(40)
+			this.coords.x += 1
+			updateAlt(14)
+			updateEarth(45, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '150px', '.1', '5deg')
+		}
+
+		if (this.currentView == 2) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(65)
+			updateEarth(45, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '30deg')
+		}
+
+		if (this.currentView == 3) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(70)
+			updateEarth(35, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '75deg')
+		}
+
+		if (this.currentView == 4) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(80)
+			updateEarth(35, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+		}
+
+		if (this.currentView == 5) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(204)
+			updateEarth(15, 4)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+		}
+
+		if (this.currentView == 6) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(127)
+			updateEarth(10, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+		}
+
+		if (this.currentView == 7) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(53)
+			updateEarth(5, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+		}
+
+		if (this.currentView == 8) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(4)
+			updateEarth(0, 5)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '.5', '-75deg')
+		}
+
+		if (this.currentView == 9) {
+			setTimeout(() => {
+				$earth.classList.remove('zoom')
+			}, 1000)
+			updateAlt(0)
 			updateEarth(0, 1)
+			updateRocket(`${window.innerWidth / 2}px`, '50px', '0', '285deg')
 		}
 	}
   

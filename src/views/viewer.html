@@ -1,6 +1,6 @@
 <div class="viewer">
 	<canvas class="full" id="stars"></canvas>
-	<div class="full earth blur" id="earth"></div>
+	<div class="full earth" id="earth"></div>
 	<!-- <canvas class="full" id="mainRocket"></canvas> -->
 	<div class="altimeter">
 		@@for (let i = 0; i < 21; i++) {
@@ -23,39 +23,57 @@
 					<div class="arrow-1"></div>
 					<div class="arrow-2"></div>
 				</div>
+				<p>The bindings are released and the legs tilt back to deviate from the trajectory of the engines while the launcher rises slowly.</p>
 			</li>
 			<li data-name="Max-Q">
 				<h2>Step 2</h2>
 				<h3>Max-Q</h3>
+				<p>The Maximum aerodynamic pressure is reached and aerodynamic stresses are lifted.</p>
 			</li>
 			<li data-name="MECO">
 				<h2>Step 3</h2>
 				<h3>MECO</h3>
+				<p>Main engine cutoff : two of the nine engines go out to limit the acceleration because the thrust of the engines of this stage is not adjustable.</p>
 			</li>
 			<li data-name="Separation">
 				<h2>Step 4</h2>
 				<h3>Separation</h3>
+				<p>Here happen the Separation of the first stage with the second stage, we are using pneumatic pushers instead of being assisted with rockets.</p>
 			</li>
 			<li data-name="Flip">
 				<h2>Step 5</h2>
 				<h3>Flip Maneuver</h3>
+				<p>The rocket exercice a Flip manoeuvre, using cold gas thrusters to make the rocket turns 180 degrees to get down to the right position.</p>
 			</li>
 			<li data-name="Boostback burn">
 				<h2>Step 6</h2>
 				<h3>Boostback burn</h3>
+				<p>Boostback burn is used to slow down the thrust of the engines, three of the nine engine boosters light up to begin guiding the floor to the ground.</p>
 			</li>
 			<li data-name="Grid fins">
 				<h2>Step 7</h2>
 				<h3>Grid fins</h3>
+				<p>Grid fins that are heat resistant unfold to direct and slow down the stage.</p>
+			</li>
+			<li data-name="Entry burn">
+				<h2>Step 8</h2>
+				<h3>Entry Burn</h3>
+				<p>Then we arrive to the Entry burn, the engine light up again to slow down the stage.</p>
 			</li>
 			<li data-name="Final burn">
-				<h2>Step 8</h2>
+				<h2>Step 9</h2>
 				<h3>Final Burn</h3>
+				<p>Final burn, last combustion of the engine, only one of its engines light up and its thrust is strongly modulated so it can pose vertically.</p>
 			</li>
 			<li data-name="Landing">
-				<h2>Step 9</h2>
+				<h2>Step 10</h2>
 				<h3>Landing</h3>
+				<p>The landing gear made with light carbon fiber is deployed.</p>
 			</li>
 		</ul>
+		<div class="rocket">
+			<img src="assets/images/src/rocket.png" alt="Falcon 9">
+			<canvas class="fire"></canvas>
+		</div>
 	</div>
 </div>	

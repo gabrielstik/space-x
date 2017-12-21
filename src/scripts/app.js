@@ -10,12 +10,12 @@ const coords = {
 }
 
 const surrounding = new Surrounding(coords)
-surrounding.createEarth('earth', 5, coords, 'atmosphere')
+surrounding.createEarth('earth', 2, coords, 'atmosphere')
 surrounding.createStars('stars', '#111111', 400)
 
 const littleRocket = new Rocket('littleRocket')
 
-const slider = new Slider('.steps', surrounding)
+const slider = new Slider('.steps', surrounding, coords)
 slider.touchmoves()
 slider.dots()
 

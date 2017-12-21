@@ -47,7 +47,7 @@ export default class Surrounding {
 		this.offset = {
 			x: 0,
 			y: 0,
-			tilt: 45
+			tilt: 0
 		}
 
 		const config = {
