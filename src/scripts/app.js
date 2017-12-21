@@ -2,6 +2,7 @@ import './sections/landing.js'
 import Surrounding from './components/Surrounding'
 import Rocket from './components/Rocket'
 import Slider from './components/Slider'
+import player from './components/player'
 
 const coords = {
 	x: 28.4583995,
@@ -17,3 +18,5 @@ const littleRocket = new Rocket('littleRocket')
 const slider = new Slider('.steps', surrounding)
 slider.touchmoves()
 slider.dots()
+
+const player = new player()
