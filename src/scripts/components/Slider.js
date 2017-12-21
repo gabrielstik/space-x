@@ -122,13 +122,7 @@ export default class Slider {
 	}
   
 	static move(currentView) {
-		
-		const $altimeter = document.querySelector('.altimeter')
-		const $altimeterValue = $altimeter.querySelector('.value')
-		const $earth = document.querySelector('#earth')
 		const $rocket = document.querySelector('.rocket')
-		const $fire = document.querySelector('.fire')
-		const $image = document.querySelector('.rocket img')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
@@ -137,127 +131,19 @@ export default class Slider {
 			Slider.moveDots(this.currentView)
 		}
 
-		const updateAlt = (alt) => {
-			$altimeterValue.innerHTML = alt
-			$altimeterValue.style.transform = `translateY(${$altimeter.offsetHeight / 210 * -alt}px)`
-		}
-
-		const updateEarth = (tilt, zoom, panX, panY) => {
+		const updateEarth = () => {
 			let coords = this.coords
-			// coords.x += 45
 			coords.y += 45
-			// this.surrounding.earth.setTilt(tilt)
-			// this.surrounding.earth.setZoom(zoom)
 			this.surrounding.earth.panTo([coords.x,coords.y])
 		}
+		updateEarth()
 
-		const updateRocket = (x, y, size, angle) => {
-			$rocket.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
-			$fire.style.transform = `translateX(${x}) translateY(${y}) scale(${size}) rotate(${angle})`
+		const updateRocket = (step) => {
+			$rocket.className = ''
+			$rocket.classList.add('rocket')
+			$rocket.classList.add(`step-${step}`)
 		}
-		updateRocket('0px', '-70vh', '.1', '5deg')
-
-		if (this.currentView == 0) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			this.coords.x += 1
-			updateAlt(0)
-			updateEarth(45, 5)
-			updateRocket('0px', '-70vh', '.1', '5deg')
-			$image.src = 'assets/imageS/src/rocket.png'
-		}
-
-		if (this.currentView == 1) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			this.coords.x += 1
-			updateAlt(14)
-			updateEarth(45, 5)
-			updateRocket('0px', '-70vh', '.1', '5deg')
-			$image.src = 'assets/imageS/src/rocket.png'
-		}
-
-		if (this.currentView == 2) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(65)
-			updateEarth(45, 5)
-			updateRocket('5vw', '-68vh', '.2', '45deg')
-			$image.src = 'assets/imageS/src/rocket.png'
-		}
-
-		if (this.currentView == 3) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(70)
-			updateEarth(35, 5)
-			updateRocket('12vw', '-62vh', '.3', '110deg')
-			$image.src = 'assets/images/src/rocket-mid.png'
-		}
-
-		if (this.currentView == 4) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(80)
-			updateEarth(35, 5)
-			updateRocket('30vw', '-45vh', '.5', '350deg')
-			$image.src = 'assets/images/src/rocket-mid.png'
-		}
-
-		if (this.currentView == 5) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(120)
-			updateEarth(15, 4)
-			updateRocket('20vw', '-10vh', '.4', '405deg')
-			$image.src = 'assets/images/src/rocket-mid.png'
-		}
-
-		if (this.currentView == 6) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(204)
-			updateEarth(15, 4)
-			updateRocket('15vw', '0', '.2', '450deg')
-			$image.src = 'assets/images/src/rocket-fins.png'
-		}
-
-		if (this.currentView == 7) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(80)
-			updateEarth(15, 4)
-			updateRocket('12vw', '0', '.2', '460deg')
-			$image.src = 'assets/images/src/rocket-fins.png'
-		}
-
-		if (this.currentView == 8) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(204)
-			updateEarth(4, 4)
-			updateRocket('10vw', '0', '.1', '500deg')
-			$image.src = 'assets/images/src/rocket-last.png'
-		}
-
-		if (this.currentView == 9) {
-			setTimeout(() => {
-				$earth.classList.remove('zoom')
-			}, 1000)
-			updateAlt(0)
-			updateEarth(0, 1)
-			updateRocket('10vw', '0', '.01', '500deg')
-			$image.src = 'assets/images/src/rocket-last.png'
-		}
+		updateRocket(this.currentView)
 	}
   
 	static moveDots(currentView) {

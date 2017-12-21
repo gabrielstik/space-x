@@ -3,6 +3,10 @@ body {
 	background: var(--spaceColor);
 }
 
+html {
+	overflow: hidden;
+}
+
 .full {
 	width: 100vw;
 	height: 100vh;

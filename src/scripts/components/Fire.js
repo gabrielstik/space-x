@@ -1,4 +1,5 @@
 export default class Fire {
+	
 	constructor() {
 		// HOW TO USE
 		// max (max lifetime of a particle), size, and speed needs to have a value

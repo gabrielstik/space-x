@@ -17,7 +17,6 @@ body {
 	top: 0;
 	left: 0;
 	overflow-x: hidden;
-	transform: translateY(-100vh);
 	will-change: transform;
 
 	&.transition {
