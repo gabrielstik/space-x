@@ -116,6 +116,10 @@ export default class Slider {
 	}
   
 	/* MOVES */
+
+	callMove(view) {
+		Slider.move(view)
+	}
   
 	static move(currentView) {
 		

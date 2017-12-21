@@ -4,6 +4,7 @@ import Rocket from './components/Rocket'
 import Slider from './components/Slider'
 import Player from './components/Player'
 import Fire from './components/Fire'
+import Gestures from './components/Gestures'
 
 const coords = {
 	x: 28.4583995,
@@ -22,3 +23,4 @@ slider.dots()
 
 new Player()
 new Fire()
+new Gestures(slider)
