@@ -11,10 +11,6 @@
 	#earth {
 		transition: filter 1s ease-out, transform .5s ease-in-out;
 
-		&.blur {
-			filter: blur(10px);
-		}
-
 		&.zoom {
 			transform: scale(2);
 		}
@@ -76,6 +72,7 @@
 	}
 
 	.steps {
+		perspective: 600px;
 
 		li {
 			position: relative;
@@ -101,12 +98,12 @@
 
 			.image {
 				position: absolute;
-				width: 600px;
+				width: 400px;
 				perspective: 600px;
 				transform-style: preserve-3d;
 
 				.arrow-1 {
-					--width: 200px;
+					--width: 14vw;
 					position: absolute;
 					width: var(--width);
 					height: 2px;
@@ -116,7 +113,7 @@
 				}
 
 				.arrow-2 {
-					--width: 200px;
+					--width: 14vw;
 					position: absolute;
 					width: var(--width);
 					height: 2px;
@@ -146,10 +143,40 @@
 				}
 
 				&.launch {
-					top: 30vh;
+					top: 10vh;
 					right: 50px;
 				}
 			}
+
+			p {
+				width: 20vw;
+				margin: 100px 5vw;
+				font-family: 'Avenir Next';
+				color: white;
+				font-size: 16px;
+				line-height: 22px;
+			}
+		}
+	}
+
+	.rocket {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 500px;
+		transform: scale(0);
+		transform-style: preserve-3d;
+		transition: all 2s ease-in-out; 
+
+		img {
+			height: 100%;
+		}
+
+		canvas {
+			height: 100px;
+			width: 20px;
+			position: absolute;
+			bottom: 0;
 		}
 	}
 }
