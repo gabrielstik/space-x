@@ -6,29 +6,27 @@ export default class Gestures {
 
 		const nextScroll = () => {
 			scrolling = true
-			view++
 			setTimeout(() => {
 				scrolling = false
 			}, 2000)
-			slider.callMove(view)
+			next()
 		}
 
 		const precScroll = () => {
 			scrolling = true
-			view--
 			setTimeout(() => {
 				scrolling = false
 			}, 2000)
-			slider.callMove(view)
+			prec()
 		}
 
 		const next = () => {
-			view++
+			view < 9 ? view++ : false
 			slider.callMove(view)
 		}
 
 		const prec = () => {
-			view--
+			view > 0 ? view-- : false
 			slider.callMove(view)
 		}
 

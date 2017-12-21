@@ -2,7 +2,7 @@ import './sections/landing.js'
 import Surrounding from './components/Surrounding'
 import Rocket from './components/Rocket'
 import Slider from './components/Slider'
-import Player from './components/Player'
+// import Player from './components/Player'
 import Fire from './components/Fire'
 import Gestures from './components/Gestures'
 
@@ -21,6 +21,6 @@ const slider = new Slider('.steps', surrounding, coords)
 slider.touchmoves()
 slider.dots()
 
-new Player()
+// new Player()
 new Fire()
 new Gestures(slider)
