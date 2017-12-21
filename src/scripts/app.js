@@ -3,6 +3,8 @@ import Surrounding from './components/Surrounding'
 import Rocket from './components/Rocket'
 import Slider from './components/Slider'
 import Player from './components/Player'
+import Fire from './components/Fire'
+import Gestures from './components/Gestures'
 
 const coords = {
 	x: 28.4583995,
@@ -19,4 +21,6 @@ const slider = new Slider('.steps', surrounding, coords)
 slider.touchmoves()
 slider.dots()
 
-const player = new Player()
+new Player()
+new Fire()
+new Gestures(slider)
