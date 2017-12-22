@@ -3,15 +3,25 @@
 export default class Gestures {
 
 	constructor(slider) {
+		const $steps = document.querySelector('.steps')
+		const $landing = document.querySelector('.landing')
 		let view = slider.constructor.currentView
 		let scrolling = false
+		let isLanding = true
 
 		const nextScroll = () => {
-			scrolling = true
-			setTimeout(() => {
-				scrolling = false
-			}, 2000)
-			next()
+			if (isLanding == false) {
+				scrolling = true
+				setTimeout(() => {
+					scrolling = false
+				}, 2000)
+				next()
+			}
+			else {
+				setTimeout(() => { isLanding = false }, 2000)
+				$steps.classList.add('active')
+				$landing.classList.add('hidden')
+			}
 		}
 
 		const precScroll = () => {
@@ -47,5 +57,11 @@ export default class Gestures {
 			event.keyCode == 39 ? next() : false
 			event.keyCode == 40 ? next() : false
 		})
+
+		if (!Modernizr.touchevents) {
+			document.addEventListener('mousewheel', (event) => {
+				event.preventDefault()
+			})
+		}
 	}
 }
