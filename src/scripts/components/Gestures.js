@@ -5,9 +5,16 @@ export default class Gestures {
 	constructor(slider) {
 		const $steps = document.querySelector('.steps')
 		const $landing = document.querySelector('.landing')
+		const $outro = document.querySelector('.outro')
+		const $button = $outro.querySelector('button')
 		let view = slider.constructor.currentView
 		let scrolling = false
 		let isLanding = true
+
+		const outro = () => {
+			$steps.classList.remove('active')
+			$outro.classList.add('active')
+		}
 
 		const nextScroll = () => {
 			if (isLanding == false) {
@@ -33,7 +40,7 @@ export default class Gestures {
 		}
 
 		const next = () => {
-			view < 9 ? view++ : false
+			view < 9 ? view++ : outro()
 			slider.callMove(view)
 		}
 
@@ -64,5 +71,13 @@ export default class Gestures {
 		else {
 			nextScroll()
 		}
+
+		$button.addEventListener('mousedown', () => {
+			slider.callMove(0)
+			view = 0
+			slider.constructor.currentView = 0
+			$steps.classList.add('active')
+			$outro.classList.remove('active')
+		})
 	}
 }
