@@ -1,9 +1,11 @@
 import Modernizr from './vendor/Modernizr'
+
 import './sections/landing'
 import Surrounding from './components/Surrounding'
 import Slider from './components/Slider'
 import Fire from './components/Fire'
 import Gestures from './components/Gestures'
+
 
 const coords = {
 	x: 28.4583995,
