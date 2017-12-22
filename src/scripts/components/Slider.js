@@ -123,7 +123,8 @@ export default class Slider {
   
 	static move(currentView) {
 		const $rocket = document.querySelector('.rocket')
-		const $fire = $rocket.querySelector('.fire')
+		const $trunk = $rocket.querySelector('.trunk')
+		const $booster = $rocket.querySelector('.booster')
 
 		this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
 		this.currentView = currentView
@@ -143,6 +144,7 @@ export default class Slider {
 			$rocket.className = ''
 			$rocket.classList.add('rocket')
 			$rocket.classList.add(`step-${step}`)
+			step >= 3 ? setTimeout(() => { $trunk.classList.add('separated') }, 1000) : false
 		}
 		updateRocket(this.currentView)
 	}
