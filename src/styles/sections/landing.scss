@@ -3,6 +3,10 @@
 	will-change: transform;
 	transition: transform .5s ease-in;
 
+	@media #{$mobile} {
+		opacity: 0;
+	}
+
 	&.hidden {
 		transform: translateY(-100vh);
 	}
@@ -11,6 +15,10 @@
 		width: 500px;
 		padding-top: 100px;
 		margin: auto;
+
+		@media #{$mobile} {
+			width: 90vw;
+		}
 
 		img {
 			width: 100%;
@@ -24,6 +32,11 @@
 		font-size: 38px;
 		color: #ffffff;
 		text-align: center;
+
+		@media #{$mobile} {
+			margin: 40px;
+			font-size: 18px;
+		}
 	}
 
 	p {
@@ -32,8 +45,14 @@
 		font-family: 'Avenir Next';
 		font-weight: 300;
 		font-size: 18px;
+		line-height: 1.5;
 		color: #ffffff;
 		text-align: center;
+
+		@media #{$mobile} {
+			width: 90vw;
+			font-size: 16px;
+		}
 	}
 
 	.scroll-bar {

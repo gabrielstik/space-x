@@ -49,19 +49,20 @@ export default class Gestures {
 					event.deltaY < 0 ? precScroll() : false
 				}
 			})
-		}
+			
+			document.addEventListener('keydown', (event) => {
+				event.keyCode == 37 ? prec() : false
+				event.keyCode == 38 ? prec() : false
+				event.keyCode == 39 ? next() : false
+				event.keyCode == 40 ? next() : false
+			})
 
-		document.addEventListener('keydown', (event) => {
-			event.keyCode == 37 ? prec() : false
-			event.keyCode == 38 ? prec() : false
-			event.keyCode == 39 ? next() : false
-			event.keyCode == 40 ? next() : false
-		})
-
-		if (!Modernizr.touchevents) {
 			document.addEventListener('mousewheel', (event) => {
 				event.preventDefault()
 			})
+		}
+		else {
+			nextScroll()
 		}
 	}
 }
