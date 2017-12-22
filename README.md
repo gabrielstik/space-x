@@ -1,10 +1,12 @@
-# HETIC P2021 Front
+# Space X
 
 Here is a school project on the theme of Space X. The website has the aim to answer this question : **How Spaxe X makes their rocket difference?**
 
 Therefore, you can experience this website through animations and explanations.
 
-[You can see an online version of the website on [![](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://spacex.netlify.com)](https)
+You can see an online version of the website on
+
+![](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)
 
 
 
