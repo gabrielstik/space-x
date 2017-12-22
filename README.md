@@ -4,9 +4,9 @@ Here is a school project on the theme of Space X. The website has the aim to ans
 
 Therefore, you can experience this website through animations and explanations.
 
-You can see an online version of the website on
+[You can see an online version of the website on
 
-![](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)
+[![](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://spacex.netlify.com)
 
 
 
